@@ -1,0 +1,21 @@
+<%
+=begin%>
+ <ol>
+  <% @answers.each do |answer| %>
+    <li><%= answer %></li>
+  <% end %>
+</ol>
+<%
+=end%>
+
+<!-- Show question asked -->
+<p>You said: <%= @question %> </p>
+
+<!-- Show coach's answer -->
+<% if params[:question].include?("?") %>
+  <p> Coach: <%= @answers[1] %> </p>
+<% elsif params[:question].capitalize == "I am going to work" %>
+  <p> Coach: <%= @answers[2] %> </p>
+<% else %>
+  <p> Coach: <%= @answers[0] %> </p>
+<% end %>
